@@ -10,7 +10,7 @@ export const environment = {
   production: true,
   hmr: false,
   version: env.npm_package_version,
-  serverUrl: 'https://gql.sipecamdata.conabio.gob.mx',
+  serverUrl: 'https://gql.sipecamdata.conabio.gob.mx/v3',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],
   mapbox: {
@@ -18,7 +18,7 @@ export const environment = {
       'pk.eyJ1IjoibnRyaW5pZGFkLWNvbmFiaW8iLCJhIjoiY2s1NWc5d3B3MGpsazNkc2JvdDl0dmswOSJ9.7aVSqlGPrLBHjt23HjBgPA',
     style: 'mapbox://styles/ntrinidad-conabio/ckcl6xwth0dky1io6f6t6sb26',
   },
-  zendroUrl: 'https://zendro.sipecamdata.conabio.gob.mx/',
+  zendroUrl: 'https://zendro.sipecamdata.conabio.gob.mx/v3/',
   alfresco: {
     apiKey: 'lUEmE9EqA8DTGUXQS9Wzh3UcT9yV42rIIW9BFbNw',
     // url: 'https://api.conabio.gob.mx/test/search/',
