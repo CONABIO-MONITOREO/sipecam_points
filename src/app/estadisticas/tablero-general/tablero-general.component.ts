@@ -640,6 +640,7 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
       }
 
       const individualsGroup = _.groupBy(filteredIndividuals, (i) => i.associated_cumulus.name);
+      console.log('@@ individualsGroup: ', individualsGroup);
 
       // dispositivos
 
@@ -673,6 +674,7 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
         );
       }
       const deploymentsGroup = _.groupBy(filteredDeployments, (d) => d.cumulus.name);
+      console.log('@@ deploymentsGroup: ', deploymentsGroup);
 
       // Transectos
       let tranOffset = 0;
@@ -716,6 +718,7 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
         }
         return cumulo;
       });
+      console.log('@@ transectsGroup: ', deploymentsGroup);
 
       // join all
       let byCumulo = {};
