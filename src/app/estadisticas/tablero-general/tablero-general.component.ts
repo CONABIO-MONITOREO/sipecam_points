@@ -27,9 +27,11 @@ import {
   getAllFiles,
   getFiles,
   getCumulus,
+  getKoboCounters,
 } from '@api/tableros';
 import { getEcosystems } from '@api/mapa';
 import { AlertController } from '@ionic/angular';
+import { ApolloQueryResult } from '@apollo/client/core';
 
 export interface Visit {
   date_sipecam_second_season: string;
@@ -605,176 +607,173 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
     }
   }
 
-  async getFormularios() {
-    const LIMIT = 500;
-    // pequeños mamiferos
-    try {
-      let indOffset = 0;
-      let filteredIndividuals = [];
-      let indLastResults = 0;
+  // async getFormularios() {
+  //   const LIMIT = 500;
+  //   // pequeños mamiferos
+  //   try {
+  //     let indOffset = 0;
+  //     let filteredIndividuals = [];
+  //     let indLastResults = 0;
 
-      do {
-        const {
-          data: { individuals },
-        }: any = await this.apollo
-          .query({
-            query: getIndividuals,
-            variables: {
-              pagination: {
-                limit: LIMIT,
-                offset: indOffset,
-              },
-            },
-          })
-          .toPromise();
-        indOffset += LIMIT;
-        indLastResults = individuals?.length ?? 0;
-        filteredIndividuals = [...filteredIndividuals, ...individuals];
-      } while (indLastResults >= LIMIT);
+  //     do {
+  //       const {
+  //         data: { individuals },
+  //       }: any = await this.apollo
+  //         .query({
+  //           query: getIndividuals,
+  //           variables: {
+  //             pagination: {
+  //               limit: LIMIT,
+  //               offset: indOffset,
+  //             },
+  //           },
+  //         })
+  //         .toPromise();
+  //       indOffset += LIMIT;
+  //       indLastResults = individuals?.length ?? 0;
+  //       filteredIndividuals = [...filteredIndividuals, ...individuals];
+  //     } while (indLastResults >= LIMIT);
 
-      if (this.currentEcosystem !== 'todos') {
-        filteredIndividuals = filteredIndividuals.filter(
-          (i) =>
-            this.cumulusByEcosystem[this.currentEcosystem].findIndex((cum) => cum.id == i.associated_cumulus.id) > -1
-        );
-      }
+  //     if (this.currentEcosystem !== 'todos') {
+  //       filteredIndividuals = filteredIndividuals.filter(
+  //         (i) =>
+  //           this.cumulusByEcosystem[this.currentEcosystem].findIndex((cum) => cum.id == i.associated_cumulus.id) > -1
+  //       );
+  //     }
 
-      const individualsGroup = _.groupBy(filteredIndividuals, (i) => i.associated_cumulus.name);
-      console.log('@@ individualsGroup: ', individualsGroup);
+  //     const individualsGroup = _.groupBy(filteredIndividuals, (i) => i.associated_cumulus.name);
 
-      // dispositivos
+  //     // dispositivos
 
-      let depOffset = 0;
-      let filteredDeployments = [];
-      let depLastResults = 0;
+  //     let depOffset = 0;
+  //     let filteredDeployments = [];
+  //     let depLastResults = 0;
 
-      do {
-        const {
-          data: { deployments },
-        }: any = await this.apollo
-          .query({
-            query: getDeployments,
-            variables: {
-              pagination: {
-                limit: LIMIT,
-                offset: depOffset,
-              },
-            },
-          })
-          .toPromise();
+  //     do {
+  //       const {
+  //         data: { deployments },
+  //       }: any = await this.apollo
+  //         .query({
+  //           query: getDeployments,
+  //           variables: {
+  //             pagination: {
+  //               limit: LIMIT,
+  //               offset: depOffset,
+  //             },
+  //           },
+  //         })
+  //         .toPromise();
 
-        indOffset += LIMIT;
-        indLastResults = deployments?.length ?? 0;
-        filteredDeployments = [...filteredDeployments, ...deployments];
-      } while (depLastResults >= LIMIT);
+  //       indOffset += LIMIT;
+  //       indLastResults = deployments?.length ?? 0;
+  //       filteredDeployments = [...filteredDeployments, ...deployments];
+  //     } while (depLastResults >= LIMIT);
 
-      if (this.currentEcosystem !== 'todos') {
-        filteredDeployments = filteredDeployments.filter(
-          (d) => this.cumulusByEcosystem[this.currentEcosystem].findIndex((cum) => cum.id == d.cumulus.id) > -1
-        );
-      }
-      const deploymentsGroup = _.groupBy(filteredDeployments, (d) => d.cumulus.name);
-      console.log('@@ deploymentsGroup: ', deploymentsGroup);
+  //     if (this.currentEcosystem !== 'todos') {
+  //       filteredDeployments = filteredDeployments.filter(
+  //         (d) => this.cumulusByEcosystem[this.currentEcosystem].findIndex((cum) => cum.id == d.cumulus.id) > -1
+  //       );
+  //     }
+  //     const deploymentsGroup = _.groupBy(filteredDeployments, (d) => d.cumulus.name);
 
-      // Transectos
-      let tranOffset = 0;
-      let filteredTransects = [];
-      let tranLastResults = 0;
+  //     // Transectos
+  //     let tranOffset = 0;
+  //     let filteredTransects = [];
+  //     let tranLastResults = 0;
 
-      do {
-        const {
-          data: { transects },
-        }: any = await this.apollo
-          .query({
-            query: getTransects,
-            variables: {
-              pagination: {
-                limit: LIMIT,
-                offset: tranOffset,
-              },
-            },
-          })
-          .toPromise();
+  //     do {
+  //       const {
+  //         data: { transects },
+  //       }: any = await this.apollo
+  //         .query({
+  //           query: getTransects,
+  //           variables: {
+  //             pagination: {
+  //               limit: LIMIT,
+  //               offset: tranOffset,
+  //             },
+  //           },
+  //         })
+  //         .toPromise();
 
-        tranOffset += LIMIT;
-        tranLastResults = transects?.length ?? 0;
-        filteredTransects = [...filteredTransects, ...transects];
-      } while (tranLastResults >= LIMIT);
+  //       tranOffset += LIMIT;
+  //       tranLastResults = transects?.length ?? 0;
+  //       filteredTransects = [...filteredTransects, ...transects];
+  //     } while (tranLastResults >= LIMIT);
 
-      if (this.currentEcosystem !== 'todos') {
-        filteredTransects = filteredTransects.filter(
-          (t) =>
-            this.cumulusByEcosystem[this.currentEcosystem].findIndex((cum) => {
-              const cumulo = t.associated_node ? t.associated_node.nomenclatura.split('_')[1] : -1;
-              return cum.name == cumulo;
-            }) > -1
-        );
-      }
+  //     if (this.currentEcosystem !== 'todos') {
+  //       filteredTransects = filteredTransects.filter(
+  //         (t) =>
+  //           this.cumulusByEcosystem[this.currentEcosystem].findIndex((cum) => {
+  //             const cumulo = t.associated_node ? t.associated_node.nomenclatura.split('_')[1] : -1;
+  //             return cum.name == cumulo;
+  //           }) > -1
+  //       );
+  //     }
 
-      const transectsGroup = _.groupBy(filteredTransects, (t) => {
-        const cumulo = t.associated_node ? t.associated_node.nomenclatura.split('_')[1] : -1;
-        if (cumulo === -1) {
-          console.log('//////', t);
-        }
-        return cumulo;
-      });
-      console.log('@@ transectsGroup: ', deploymentsGroup);
+  //     const transectsGroup = _.groupBy(filteredTransects, (t) => {
+  //       const cumulo = t.associated_node ? t.associated_node.nomenclatura.split('_')[1] : -1;
+  //       if (cumulo === -1) {
+  //         console.log('//////', t);
+  //       }
+  //       return cumulo;
+  //     });
 
-      // join all
-      let byCumulo = {};
+  //     // join all
+  //     let byCumulo = {};
 
-      Object.keys(individualsGroup).forEach((i) => {
-        if (!!!byCumulo[i]) {
-          byCumulo[i] = {};
-        }
-        byCumulo[i].mamiferos = individualsGroup[i].length;
-      });
-      Object.keys(deploymentsGroup).forEach((d) => {
-        if (!!!byCumulo[d]) {
-          byCumulo[d] = {};
-        }
-        byCumulo[d].camaras = deploymentsGroup[d].filter(
-          (deployment) => deployment.device.device.type.toLowerCase() === 'camara'
-        ).length;
-        byCumulo[d].grabadoras = deploymentsGroup[d].filter(
-          (deployment) => deployment.device.device.type.toLowerCase() === 'grabadora'
-        ).length;
-      });
-      Object.keys(transectsGroup).forEach((i) => {
-        if (!!!byCumulo[i]) {
-          byCumulo[i] = {};
-        }
-        byCumulo[i].transectos = transectsGroup[i].length;
-      });
+  //     Object.keys(individualsGroup).forEach((i) => {
+  //       if (!!!byCumulo[i]) {
+  //         byCumulo[i] = {};
+  //       }
+  //       byCumulo[i].mamiferos = individualsGroup[i].length;
+  //     });
+  //     Object.keys(deploymentsGroup).forEach((d) => {
+  //       if (!!!byCumulo[d]) {
+  //         byCumulo[d] = {};
+  //       }
+  //       byCumulo[d].camaras = deploymentsGroup[d].filter(
+  //         (deployment) => deployment.device.device.type.toLowerCase() === 'camara'
+  //       ).length;
+  //       byCumulo[d].grabadoras = deploymentsGroup[d].filter(
+  //         (deployment) => deployment.device.device.type.toLowerCase() === 'grabadora'
+  //       ).length;
+  //     });
+  //     Object.keys(transectsGroup).forEach((i) => {
+  //       if (!!!byCumulo[i]) {
+  //         byCumulo[i] = {};
+  //       }
+  //       byCumulo[i].transectos = transectsGroup[i].length;
+  //     });
 
-      const categories = [];
-      const camaras = [];
-      const grabadoras = [];
-      const mamiferos = [];
-      const transectos = [];
+  //     const categories = [];
+  //     const camaras = [];
+  //     const grabadoras = [];
+  //     const mamiferos = [];
+  //     const transectos = [];
 
-      Object.keys(byCumulo).forEach((cumulo) => {
-        categories.push(`Cúm ${cumulo}`);
-        camaras.push(byCumulo[cumulo].camaras ?? 0);
-        grabadoras.push(byCumulo[cumulo].grabadoras ?? 0);
-        mamiferos.push(byCumulo[cumulo].mamiferos ?? 0);
-        transectos.push(byCumulo[cumulo].transectos ?? 0);
-      });
+  //     Object.keys(byCumulo).forEach((cumulo) => {
+  //       categories.push(`Cúm ${cumulo}`);
+  //       camaras.push(byCumulo[cumulo].camaras ?? 0);
+  //       grabadoras.push(byCumulo[cumulo].grabadoras ?? 0);
+  //       mamiferos.push(byCumulo[cumulo].mamiferos ?? 0);
+  //       transectos.push(byCumulo[cumulo].transectos ?? 0);
+  //     });
 
-      this.formulariosChart.xaxis = {
-        labels: {
-          rotate: -90,
-        },
-        categories: categories,
-      };
-      this.formulariosChart.series[0].data = camaras;
-      this.formulariosChart.series[1].data = grabadoras;
-      this.formulariosChart.series[2].data = mamiferos;
-      this.formulariosChart.series[3].data = transectos;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     this.formulariosChart.xaxis = {
+  //       labels: {
+  //         rotate: -90,
+  //       },
+  //       categories: categories,
+  //     };
+  //     this.formulariosChart.series[0].data = camaras;
+  //     this.formulariosChart.series[1].data = grabadoras;
+  //     this.formulariosChart.series[2].data = mamiferos;
+  //     this.formulariosChart.series[3].data = transectos;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   async getEcosystems() {
     try {
@@ -822,6 +821,78 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * Querys for 'kzCounters' Zendro server.
+   */
+  async getFormularios() {
+    try {
+      const { data } = (await this.apollo
+        .use('kzCounters')
+        .query({
+          query: getKoboCounters,
+          variables: {
+            pagination: {
+              limit: 5000,
+              offset: 0,
+            },
+          },
+        })
+        .toPromise()) as ApolloQueryResult<{
+        kobo_counters: {
+          id: string;
+          cumulus: string;
+          name: string;
+          value: number;
+          kobo_asset_uid: string;
+          kobo_asset_name: string;
+        }[];
+      }>;
+
+      const categories = [];
+      const camaras = [];
+      const grabadoras = [];
+      const mamiferos = [];
+      const eries = [];
+
+      const camaras_name = 'Cámara Trampa';
+      const grabadoras_name = 'Grabadora AudioMoth';
+      const mamiferos_name = 'PM';
+      const eries_name = 'ERIE';
+
+      const byCumulo = data.kobo_counters.reduce((acc, cur) => {
+        //case 1: new cumulus
+        if (!acc?.[cur.cumulus]) {
+          acc[cur.cumulus] = { [cur.name]: cur.value };
+        } else {
+          //case 2: cumulus already exist
+          acc[cur.cumulus][cur.name] = cur.value + (acc[cur.cumulus][cur.name] ?? 0);
+        }
+        return acc;
+      }, {});
+
+      Object.keys(byCumulo).forEach((cumulo) => {
+        categories.push(`Cúm ${cumulo}`);
+        camaras.push(byCumulo[cumulo][camaras_name] ?? 0);
+        grabadoras.push(byCumulo[cumulo][grabadoras_name] ?? 0);
+        mamiferos.push(byCumulo[cumulo][mamiferos_name] ?? 0);
+        eries.push(byCumulo[cumulo][eries_name] ?? 0);
+      });
+
+      this.formulariosChart.xaxis = {
+        labels: {
+          rotate: -90,
+        },
+        categories: categories,
+      };
+      this.formulariosChart.series[0].data = camaras;
+      this.formulariosChart.series[1].data = grabadoras;
+      this.formulariosChart.series[2].data = mamiferos;
+      this.formulariosChart.series[3].data = eries;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async ngOnInit() {
     await this.getCumulus();
   }
@@ -829,9 +900,9 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
   async ngAfterViewInit() {
     await this.getEcosystems();
     await this.getVisits();
-    await this.getFormularios();
     await this.getDevices();
     await this.getFiles();
+    await this.getFormularios();
     // this.getTransects();
   }
 }

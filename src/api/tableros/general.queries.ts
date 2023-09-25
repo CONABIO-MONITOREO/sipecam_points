@@ -126,3 +126,19 @@ export const getCumulus = gql`
     }
   }
 `;
+
+/**
+ * KoboCounters
+ */
+export const getKoboCounters = gql`
+  query get_kobo_counters($pagination: paginationInput!) {
+    kobo_counters(pagination: $pagination) {
+      id
+      cumulus
+      name
+      value
+      kobo_asset_uid
+      kobo_asset_name
+    }
+  }
+`;
