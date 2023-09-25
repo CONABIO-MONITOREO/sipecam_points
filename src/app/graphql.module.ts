@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { APOLLO_OPTIONS } from 'apollo-angular';
+import { APOLLO_OPTIONS, APOLLO_NAMED_OPTIONS, NamedOptions } from 'apollo-angular';
 import {
   ApolloClientOptions,
   ApolloLink,
@@ -11,10 +11,12 @@ import {
 } from '@apollo/client/core';
 import { onError } from '@apollo/client/link/error';
 import { HttpLink } from 'apollo-angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from '@env/environment';
 
 const uri = `${environment.serverUrl}/graphql`; // <-- add the URL of the GraphQL server here
+const kzCountersUri = `${environment.kzCountersUrl}/graphql`;
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   const http = httpLink.create({ uri });
@@ -103,11 +105,40 @@ const getNewToken = async (): Promise<string | null> => {
   }
 };
 
+export function createNamedApollo(httpLink: HttpLink): NamedOptions {
+  const defaultOptions: DefaultOptions = {
+    watchQuery: {
+      fetchPolicy: 'network-only', //'cache-and-network'
+    },
+    query: {
+      fetchPolicy: 'no-cache',
+    },
+  };
+
+  return {
+    kzCounters: {
+      name: 'kzCounters',
+      link: httpLink.create({
+        uri: kzCountersUri,
+      }),
+      cache: new InMemoryCache({
+        addTypename: false,
+      }),
+    },
+  };
+}
+
 @NgModule({
+  exports: [HttpClientModule],
   providers: [
     {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,
+      deps: [HttpLink],
+    },
+    {
+      provide: APOLLO_NAMED_OPTIONS,
+      useFactory: createNamedApollo,
       deps: [HttpLink],
     },
   ],
