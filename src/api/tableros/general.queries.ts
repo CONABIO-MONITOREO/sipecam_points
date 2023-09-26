@@ -127,6 +127,9 @@ export const getCumulus = gql`
   }
 `;
 
+// ------- -------
+// Queries for kz1 server
+// ------- -------
 /**
  * KoboCounters
  */
