@@ -15,7 +15,7 @@ export const environment = {
   hmr: true,
   version: env.npm_package_version + '-dev',
   serverUrl: 'https://gql.sipecamdata.conabio.gob.mx/v3',
-  kzCountersUrl: 'http://sipecamdata:3800',
+  kzCountersUrl: 'https://gql.sipecamdata.conabio.gob.mx/kz1',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],
   mapbox: {
