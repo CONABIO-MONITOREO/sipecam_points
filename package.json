@@ -28,6 +28,7 @@
     "@angular/platform-browser-dynamic": "^13.2.2",
     "@angular/router": "^13.2.2",
     "@apollo/client": "^3.4.8",
+    "@fontsource/carlito": "^5.0.16",
     "@ionic/angular": "^6.7.5",
     "@ngx-translate/core": "^14.0.0",
     "@turf/turf": "^5.1.6",

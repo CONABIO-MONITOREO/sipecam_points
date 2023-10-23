@@ -56,6 +56,8 @@ export type ChartOptions = {
   legend: ApexLegend;
 };
 
+const updateTimeout = 300;
+
 @Component({
   selector: 'app-tablero-general',
   templateUrl: './tablero-general.component.html',
@@ -525,6 +527,14 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
           .reduce((previous, current) => previous + current, 0);
         dataReports.push(numReports);
       });
+
+      // We need this timeout to get the categories updated correctly on load.
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(true);
+        }, updateTimeout);
+      });
+
       this.visitasChart.xaxis = {
         labels: {
           rotate: -90,
