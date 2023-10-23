@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { environment } from '@env/environment';
+import '@fontsource/carlito';
 
 @Component({
   selector: 'app-about',

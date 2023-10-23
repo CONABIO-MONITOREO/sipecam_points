@@ -5,10 +5,66 @@ ion-content {
 .content {
   font-size: 20px;
   overflow-y: scroll;
+  font-family: "Carlito";
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: "column";
+  flex-wrap: wrap;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: "row";
+}
+
+.flex-item-1 {
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-1 {
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .slider {
   height: 100%;
+}
+
+.photo {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+}
+
+.text-bold {
+  font-weight: 700;
 }
 
 .parallax {
@@ -22,10 +78,29 @@ ion-content {
   background-size: cover;
 }
 
+.box-title {
+  height: auto;
+  padding: 40px 60px;
+  width: 100%;
+  text-align: left;
+  color: #000;
+
+  span {
+    padding: 18px;
+    font-size: 96px;
+    letter-spacing: 5px;
+    font-weight: 700;
+  }
+}
+
+.box-1 {
+  width: 100%;
+}
+
 .caption {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 3%;
   width: 100%;
   text-align: center;
   color: #000;
@@ -40,11 +115,58 @@ ion-content {
 }
 
 .text-section {
-  color: #fff;
-  background-color: #282e34;
   text-align: center;
   padding: 40px 60px;
   text-align: justify;
+  font-size: 18px;
+}
+
+.bg-logo {
+  background-color: #282e34;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../assets/logo-blanco.png);
+}
+
+.bg-estaciones {
+  width: 100%;
+  img {
+    --s: 15px; /* size of the frame */
+    --b: 2px; /* border thickness */
+    --w: 500px; /* width of the image */
+    --c: #7b3b3b;
+
+    width: var(--w);
+    aspect-ratio: 1;
+    object-fit: cover;
+    padding: calc(2 * var(--s));
+    --_g: var(--c) var(--b), #0000 0 calc(100% - var(--b)), var(--c) 0;
+    background: linear-gradient(var(--_g)) 50%/100% var(--_i, 100%) no-repeat,
+      linear-gradient(90deg, var(--_g)) 50% / var(--_i, 100%) 100% no-repeat;
+    outline: calc(var(--w) / 2) solid #0009;
+    outline-offset: calc(var(--w) / -2 - 2 * var(--s));
+    transition: 0.4s;
+    cursor: pointer;
+  }
+  img:hover {
+    outline: var(--b) solid var(--c);
+    outline-offset: calc(var(--s) / -2);
+    --_i: calc(100% - 2 * var(--s));
+  }
+}
+
+.bg-c1 {
+  background-color: #f1f7ed;
+}
+
+.bg-black {
+  background-color: #000;
+  color: #ddd;
+}
+
+.h-auto {
+  height: fit-content;
 }
 
 .bg-1 {
@@ -127,4 +249,126 @@ ion-content {
 
 .bg-9 {
   background-image: url(../../assets/fototrampas/venado_bura.jpeg);
+}
+
+////
+
+.c {
+  position: relative;
+  width: 90vmin;
+  height: calc(90vmin * 9 / 16);
+  margin: auto;
+  overflow: hidden;
+  box-shadow: 0 1.25em 1em -0.5em #0005;
+}
+
+.i {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 0% 50%;
+  transition: transform 1s;
+
+  .c:hover & {
+    transform: translateX(-3%);
+    transition-duration: 5s;
+  }
+}
+
+:root {
+  --s1-w: 40vmin;
+  --s2-w: 60vmin;
+  --s3-w: 10vmin;
+}
+
+@keyframes move-x {
+  50% {
+    transform: translateX(var(--x1));
+  }
+  100% {
+    transform: translateX(var(--x2));
+  }
+}
+
+.s1,
+.s2,
+.s3 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  animation: gg 0.5s ease-out forwards;
+  pointer-events: none;
+
+  .c:hover & {
+    animation-name: move-x;
+  }
+}
+
+.s1 {
+  left: 100%;
+  z-index: 1;
+  width: var(--s1-w);
+  background-color: #fff;
+  mix-blend-mode: difference;
+
+  --x1: -110vmin;
+  --x2: -50vmin;
+}
+
+.s2 {
+  z-index: 2;
+  width: calc(var(--s2-w) * 2);
+  left: calc(100% + var(--s1-w));
+  background-color: #000;
+
+  --x1: -110vmin;
+  --x2: -90vmin;
+}
+
+.s3 {
+  z-index: 2;
+  width: 10vmin;
+  right: 100%;
+  background-color: #000;
+  animation-delay: 0.1s;
+
+  --x1: 0;
+  --x2: 95%;
+}
+
+//////
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  margin: 0;
+  background: #333;
+  color: #cca;
+}
+
+h1 {
+  text-align: center;
+}
+
+.info {
+  align-self: flex-end;
+  margin: 3rem 1rem 1rem;
+  text-align: right;
+  font-size: 0.85em;
+  font-style: italic;
+  font-family: serif;
+  opacity: 0.75;
+
+  a {
+    color: inherit;
+  }
 }
