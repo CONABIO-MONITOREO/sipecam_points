@@ -1,11 +1,7 @@
-ion-content {
-  font-size: 20px;
-}
-
 .content {
   font-size: 20px;
   overflow-y: scroll;
-  font-family: "Carlito";
+  font-family: "Poppins", serif;
 }
 
 .flex-col {
@@ -57,11 +53,290 @@ ion-content {
   height: 100%;
 }
 
+// photo (commom props)
+// ------- -------
 .photo {
-  width: 350px;
-  height: 350px;
-  object-fit: contain;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+
+  img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: brightness(1.2) grayscale(1);
+    background-size: cover;
+    box-shadow: 0 0 8px 8px white inset;
+    transition: all 0.5s ease-out;
+  }
 }
+
+.photo:hover {
+  img {
+    width: 70%;
+    height: 70%;
+    filter: brightness(1) grayscale(0) sepia(0.7);
+  }
+}
+// ------- -------
+
+// photo 1 (Rodolfo)
+// ------- -------
+.filter-1 {
+  img {
+    filter: grayscale(1) brightness(1.3);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-1:hover {
+  img {
+    filter: grayscale(0) brightness(1) sepia(0.7);
+  }
+}
+
+.bg-1 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-1:hover {
+  background-image: url(../../assets/bg/bg-13.jpg);
+}
+// ------- -------
+
+// photo 2 (Mariana)
+// ------- -------
+.filter-2 {
+  img {
+    filter: grayscale(1) brightness(1);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-2:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-2 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-2:hover {
+  background-image: url(../../assets/bg/bg-7.jpg);
+}
+// ------- -------
+
+// photo 3 (Pedro)
+// ------- -------
+.filter-3 {
+  img {
+    filter: grayscale(1) brightness(1.3);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-3:hover {
+  img {
+    filter: grayscale(0) brightness(1) sepia(0.7);
+  }
+}
+
+.bg-3 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-3:hover {
+  background-image: url(../../assets/bg/bg-6.jpg);
+}
+// ------- -------
+
+// photo 4 (Santiago)
+// ------- -------
+.filter-4 {
+  img {
+    filter: grayscale(1) brightness(4);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-4:hover {
+  img {
+    filter: grayscale(0) brightness(3.5);
+  }
+}
+
+.bg-4 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-4:hover {
+  background-image: url(../../assets/bg/bg-10.jpg);
+}
+// ------- -------
+
+// photo 5 (Everardo)
+// ------- -------
+.filter-5 {
+  img {
+    filter: grayscale(1) brightness(2);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-5:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-5 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-5:hover {
+  background-image: url(../../assets/bg/bg-14.jpg);
+}
+// ------- -------
+
+// photo 6 (Oliver)
+// ------- -------
+.filter-6 {
+  img {
+    filter: grayscale(1) brightness(1);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-6:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-6 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-6:hover {
+  background-image: url(../../assets/bg/bg-15.jpg);
+  background-size: 100% 100%;
+  background-position-x: -110px;
+}
+// ------- -------
+
+// photo 7 (Julián)
+// ------- -------
+.filter-7 {
+  img {
+    filter: grayscale(1) brightness(1);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-7:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-7 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-7:hover {
+  background-image: url(../../assets/bg/bg-12.jpg);
+}
+// ------- -------
+
+// photo 8 (Alex)
+// ------- -------
+.filter-8 {
+  img {
+    filter: grayscale(1) brightness(1);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-8:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-8 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-8:hover {
+  background-image: url(../../assets/bg/bg-16.jpg);
+  background-size: 100% 100%;
+  background-position-x: -110px;
+}
+// ------- -------
+
+// photo 9 (Miguel)
+// ------- -------
+.filter-9 {
+  img {
+    filter: grayscale(1) brightness(1);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-9:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-9 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-9:hover {
+  background-image: url(../../assets/bg/bg-18.jpg);
+  background-size: 120% 120%;
+  background-position: -80px -80px;
+}
+// ------- -------
+
+// photo 10 (Francisco)
+// ------- -------
+.filter-10 {
+  img {
+    filter: grayscale(1) brightness(1);
+    transition: all 0.5s ease-out;
+  }
+}
+
+.filter-10:hover {
+  img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+.bg-10 {
+  background-image: url(../../assets/bg/bg-base.jpg);
+  transition: all 0.5s ease-out;
+}
+
+.bg-10:hover {
+  background-image: url(../../assets/bg/bg-20.jpg);
+  // background-size: 100% 100%;
+  background-position: -100px 0px;
+}
+// ------- -------
 
 .text-bold {
   font-weight: 700;
@@ -87,7 +362,7 @@ ion-content {
 
   span {
     padding: 18px;
-    font-size: 96px;
+    font-size: 70px;
     letter-spacing: 5px;
     font-weight: 700;
   }
@@ -116,7 +391,7 @@ ion-content {
 
 .text-section {
   text-align: center;
-  padding: 40px 60px;
+  padding: 20px 20px;
   text-align: justify;
   font-size: 18px;
 }
@@ -165,186 +440,8 @@ ion-content {
   color: #ddd;
 }
 
-.bg-x1 {
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .box {
-    width: 40vmin;
-    height: 40vmin;
-    border: 1px dashed rgba(255, 255, 255, 0.4);
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      border-radius: 50%;
-      border: 1px dashed rgba(255, 255, 255, 0.4);
-      transform: scale(1.42);
-    }
-  }
-
-  .spin-container {
-    width: 100%;
-    height: 100%;
-    animation: spin 12s ease-in-out infinite alternate;
-    position: relative;
-  }
-
-  .shape {
-    width: 100%;
-    height: 100%;
-    transition: border-radius 1s ease-out;
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: morph 8s ease-in-out infinite both alternate;
-    position: absolute;
-    overflow: hidden;
-    z-index: 5;
-  }
-
-  .bd-mariana {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: url(../../assets/equipo/Mariana.jpg);
-    background-size: 80%;
-    background-position: center center;
-    display: flex;
-    color: #003;
-    font-size: 5vw;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-transform: uppercase;
-    animation: spin 12s ease-in-out infinite alternate-reverse;
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .bd-santiago {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: url(../../assets/equipo/Santiago.jpg);
-    background-size: 80%;
-    background-position: center center;
-    display: flex;
-    color: #003;
-    font-size: 5vw;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-transform: uppercase;
-    animation: spin 12s ease-in-out infinite alternate-reverse;
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .bd-oliver {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 15%;
-    background: url(../../assets/equipo/Oliver.png);
-    background-size: 75%;
-    background-position: center center;
-    display: flex;
-    color: #003;
-    font-size: 5vw;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-transform: uppercase;
-    animation: spin 12s ease-in-out infinite alternate-reverse;
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .bd-alex {
-    width: 110%;
-    height: 110%;
-    position: absolute;
-    top: -15%;
-    background: url(../../assets/equipo/Alex.jpg);
-    background-size: 100%;
-    background-position: center center;
-    display: flex;
-    color: #003;
-    font-size: 5vw;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-transform: uppercase;
-    animation: spin 12s ease-in-out infinite alternate-reverse;
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .bd-francisco {
-    width: 105%;
-    height: 105%;
-    position: absolute;
-    left: -10%;
-    background: url(../../assets/equipo/Francisco.jpg);
-    background-size: 100%;
-    background-position: center center;
-    display: flex;
-    color: #003;
-    font-size: 5vw;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-transform: uppercase;
-    animation: spin 12s ease-in-out infinite alternate-reverse;
-    opacity: 1;
-    z-index: 2;
-  }
-
-  @keyframes morph {
-    0% {
-      border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
-    }
-    100% {
-      border-radius: 70% 90%;
-    }
-  }
-
-  // @keyframes spin {
-  //   to {
-  //     transform: rotate(1turn);
-  //   }
-  // }
-}
-
 .h-auto {
   height: fit-content;
-}
-
-.bg-1 {
-  /* Full height */
-  min-height: 100%;
-  background-image: url(../../assets/fototrampas/oso.jpeg);
-}
-
-.bg-2 {
-  background-image: url(../../assets/fototrampas/coyote_noche.jpeg);
-}
-
-.bg-3 {
-  background-image: url(../../assets/fototrampas/venado_bura4.jpeg);
 }
 
 .bg-equipo {
@@ -389,134 +486,6 @@ ion-content {
     object-fit: cover;
     object-position: top;
   }
-}
-
-.bg-4 {
-  background-image: url(../../assets/fototrampas/viejo_de_monte.jpeg);
-}
-
-.bg-5 {
-  background-image: url(../../assets/fototrampas/venado_bura2.jpeg);
-}
-
-.bg-6 {
-  background-image: url(../../assets/fototrampas/basariscus_astutus.jpg);
-}
-
-.bg-7 {
-  background-image: url(../../assets/fototrampas/tapir.png);
-}
-
-.bg-8 {
-  background-image: url(../../assets/fototrampas/uamericanus.jpeg);
-}
-
-.bg-9 {
-  background-image: url(../../assets/fototrampas/venado_bura.jpeg);
-}
-
-////
-
-.c {
-  position: relative;
-  width: 90vmin;
-  height: calc(90vmin * 9 / 16);
-  margin: auto;
-  overflow: hidden;
-  box-shadow: 0 1.25em 1em -0.5em #0005;
-}
-
-.i {
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-}
-
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: 0% 50%;
-  transition: transform 1s;
-
-  .c:hover & {
-    transform: translateX(-3%);
-    transition-duration: 5s;
-  }
-}
-
-:root {
-  --s1-w: 40vmin;
-  --s2-w: 60vmin;
-  --s3-w: 10vmin;
-}
-
-@keyframes move-x {
-  50% {
-    transform: translateX(var(--x1));
-  }
-  100% {
-    transform: translateX(var(--x2));
-  }
-}
-
-.s1,
-.s2,
-.s3 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  animation: gg 0.5s ease-out forwards;
-  pointer-events: none;
-
-  .c:hover & {
-    animation-name: move-x;
-  }
-}
-
-.s1 {
-  left: 100%;
-  z-index: 1;
-  width: var(--s1-w);
-  background-color: #fff;
-  mix-blend-mode: difference;
-
-  --x1: -110vmin;
-  --x2: -50vmin;
-}
-
-.s2 {
-  z-index: 2;
-  width: calc(var(--s2-w) * 2);
-  left: calc(100% + var(--s1-w));
-  background-color: #000;
-
-  --x1: -110vmin;
-  --x2: -90vmin;
-}
-
-.s3 {
-  z-index: 2;
-  width: 10vmin;
-  right: 100%;
-  background-color: #000;
-  animation-delay: 0.1s;
-
-  --x1: 0;
-  --x2: 95%;
-}
-
-//////
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  min-height: 100vh;
-  margin: 0;
-  background: #333;
-  color: #cca;
 }
 
 h1 {
