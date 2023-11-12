@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { environment } from '@env/environment';
 import '@fontsource/carlito';
 
@@ -20,4 +19,17 @@ export class AboutComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  isHidden: boolean = true;
+  hoverItemId: string = '';
+
+  onMouseEnter(itemId: string) {
+    this.hoverItemId = itemId;
+    console.log('@@ onEnter: hoverItemId: ', this.hoverItemId);
+  }
+
+  onMouseLeave() {
+    this.hoverItemId = '';
+    console.log('@@ onLeave: hoverItemId: ', this.hoverItemId);
+  }
 }
