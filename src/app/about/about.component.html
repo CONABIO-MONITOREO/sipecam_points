@@ -7,8 +7,152 @@
   </ion-toolbar>
 </ion-header>
 
-<div class="content">
-  <section class="parallax bg-logo box-1 flex-item-1"></section>
+<div class="content" [style.background-color]="bgColor">
+  <section class="flex-item-1">
+    <div class="position-relative intro-box" [style.background-color]="bgColor">
+      <div *ngIf="introState <= 1" class="bg-logo-1 position-absolute box-full"></div>
+      <div
+        @logoOut
+        *ngIf="introState === 2 || introState >= 102 || hoverLineId === 2"
+        class="bg-logo-2 position-absolute box-full"
+      ></div>
+      <div
+        @logoOut
+        *ngIf="introState === 3 || introState >= 103 || hoverLineId === 3"
+        class="bg-logo-3 position-absolute box-full"
+      ></div>
+      <div
+        @logoOut
+        *ngIf="introState === 4 || introState >= 104 || hoverLineId === 4"
+        class="bg-logo-4 position-absolute box-full"
+      ></div>
+      <div
+        @logoOut
+        *ngIf="introState === 5 || introState >= 105 || hoverLineId === 5"
+        class="bg-logo-5 position-absolute box-full"
+      ></div>
+      <div
+        @logoOut
+        *ngIf="introState === 6 || introState >= 106 || hoverLineId === 6"
+        class="bg-logo-6 position-absolute box-full"
+      ></div>
+      <div
+        @logoOut
+        *ngIf="introState === 7 || introState >= 107 || hoverLineId === 7"
+        class="bg-logo-7 position-absolute box-full"
+      ></div>
+      <div
+        @logoOut
+        *ngIf="introState === 8 || introState >= 108 || hoverLineId === 8"
+        class="bg-logo-8 position-absolute box-full"
+      ></div>
+      <div *ngIf="introState === 100 && hoverLineId === 0" class="bg-logo-100 position-absolute box-full"></div>
+    </div>
+  </section>
+
+  <style>
+    .lines-container {
+      height: 50px;
+    }
+    .line {
+      width: 100px;
+      height: 50px;
+    }
+
+    .bg-color-2 {
+      border-top: 4px solid rgb(250, 84, 46);
+    }
+    .bg-color-2:hover {
+      border: 4px solid rgb(250, 84, 46);
+    }
+
+    .bg-color-3 {
+      border-top: 4px solid rgb(66, 74, 139);
+    }
+    .bg-color-3:hover {
+      border: 4px solid rgb(66, 74, 139);
+    }
+
+    .bg-color-4 {
+      border-top: 4px solid rgb(76, 163, 215);
+    }
+    .bg-color-4:hover {
+      border: 4px solid rgb(76, 163, 215);
+    }
+
+    .bg-color-5 {
+      border-top: 4px solid rgb(246, 209, 72);
+    }
+    .bg-color-5:hover {
+      border: 4px solid rgb(246, 209, 72);
+    }
+
+    .bg-color-6 {
+      border-top: 4px solid rgb(232, 146, 79);
+    }
+    .bg-color-6:hover {
+      border: 4px solid rgb(232, 146, 79);
+    }
+
+    .bg-color-7 {
+      border-top: 4px solid rgb(221, 88, 82);
+    }
+    .bg-color-7:hover {
+      border: 4px solid rgb(221, 88, 82);
+    }
+
+    .bg-color-8 {
+      border-top: 4px solid rgb(84, 183, 186);
+    }
+    .bg-color-8:hover {
+      border: 4px solid rgb(84, 183, 186);
+    }
+  </style>
+
+  <div class="flex-row margin-x1 justify-content-center align-items-center lines-container">
+    <div
+      *ngIf="introState >= 102 || introState === 100"
+      class="line bg-color-2"
+      (mouseenter)="onLineEnter(2)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      *ngIf="introState >= 103 || introState === 100"
+      class="line bg-color-3"
+      (mouseenter)="onLineEnter(3)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      *ngIf="introState >= 104 || introState === 100"
+      class="line bg-color-4"
+      (mouseenter)="onLineEnter(4)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      *ngIf="introState >= 105 || introState === 100"
+      class="line bg-color-5"
+      (mouseenter)="onLineEnter(5)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      *ngIf="introState >= 106 || introState === 100"
+      class="line bg-color-6"
+      (mouseenter)="onLineEnter(6)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      *ngIf="introState >= 107 || introState === 100"
+      class="line bg-color-7"
+      (mouseenter)="onLineEnter(7)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      *ngIf="introState >= 108 || introState === 100"
+      class="line bg-color-8"
+      (mouseenter)="onLineEnter(8)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+  </div>
 
   <div class="margin-x1">
     <section>
@@ -38,7 +182,7 @@
     </div>
   </div>
 
-  <div class="bg-black">
+  <div>
     <div class="flex-row margin-x1">
       <section class="text-section box-1 flex-item-1 flex-col align-items-center">
         <p class="flex-item-1 h-auto">
@@ -60,38 +204,6 @@
     </section>
 
     <div class="flex-row justify-content-space-between align-items-flex-start padding-1">
-      <style>
-        #box {
-          position: absolute;
-          z-index: 100;
-          /* display: flex;
-          align-items: center;
-          justify-content: center; */
-          background: #fff;
-          /* width: 100%;
-          height: 100px;
-          border-radius: 10px; */
-        }
-
-        .text-pop-1 {
-          text-align: justify;
-          padding-top: 15px;
-          padding-bottom: 100px;
-          padding-left: 15px;
-          padding-right: 15px;
-          font-size: 12px;
-          font-weight: lighter;
-          color: rgb(40, 47, 51);
-        }
-
-        .section-shadow {
-          transition: box-shadow 0.1s ease-in-out;
-        }
-        .section-shadow:hover {
-          box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 20px;
-        }
-      </style>
-
       <!-- 1. Rodolfo-->
       <section
         class="position-relative"
@@ -106,7 +218,7 @@
           <img src="assets/equipo/RDirzo.jpg" />
         </div>
 
-        <div class="text-1 text-align-center">Dr. Rodolfo Dirzo</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'rodolfo'">Dr. Rodolfo Dirzo</div>
         <div class="text-2 text-align-center">Biología</div>
 
         <ng-container
@@ -114,7 +226,7 @@
           (mouseenter)="onMouseEnter('rodolfo')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Estudió biología en la Universidad Autónoma de Morelos. Después, llevó a cabo su maestría y doctorado en
               la Universidad de Gales, Gran Bretaña, estudiando la ecología evolutiva de la relación entre plantas y
@@ -147,7 +259,9 @@
           <img src="assets/equipo/Mariana.jpg" />
         </div>
 
-        <div class="text-1 text-align-center">Dr. Mariana Munguía Carrara</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'mariana'">
+          Dr. Mariana Munguía Carrara
+        </div>
         <div class="text-2 text-align-center">Biología Ambiental</div>
 
         <ng-container
@@ -155,7 +269,7 @@
           (mouseenter)="onMouseEnter('mariana')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Bióloga, estudió en la Universidad Nacional Autónoma de México. Con interés en el área de la conservación
               de la biodiversidad y en conocer las variables determinantes de la distribución geográfica de las
@@ -185,7 +299,9 @@
           <img src="assets/equipo/Pedro.png" />
         </div>
 
-        <div class="text-1 text-align-center">Biól. Pedro Gabriel Díaz Maeda</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'pedro'">
+          Biól. Pedro Gabriel Díaz Maeda
+        </div>
         <div class="text-2 text-align-center">Ecología y Sistemas de Información Geográfica</div>
 
         <ng-container
@@ -193,7 +309,7 @@
           (mouseenter)="onMouseEnter('pedro')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Biólogo. Mi interés se centra en el estudio de las comunidades vegetales, su estructura, composición y
               funcionamiento, así como su clasificación, dinámica y distribución en el territorio.
@@ -225,7 +341,9 @@
           <img src="assets/equipo/Santiago.jpg" />
         </div>
 
-        <div class="text-1 text-align-center">Mtro. Santiago Martínez Balvanera</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'santiago'">
+          Mtro. Santiago Martínez Balvanera
+        </div>
         <div class="text-2 text-align-center">Matemáticas</div>
 
         <ng-container
@@ -233,7 +351,7 @@
           (mouseenter)="onMouseEnter('santiago')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Matemático. Me interesa estudiar las formas en las que la biodiversidad manifiesta, a través del sonido,
               información acerca de su composición y dinámica. Junto con mi equipo, trabajamos para generar herramientas
@@ -260,7 +378,9 @@
           <img src="assets/equipo/Everardo.png" />
         </div>
 
-        <div class="text-1 text-align-center">Mtro. Everardo Robredo Esquivelzeta</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'everardo'">
+          Mtro. Everardo Robredo Esquivelzeta
+        </div>
         <div class="text-2 text-align-center">Biología</div>
 
         <ng-container
@@ -268,7 +388,7 @@
           (mouseenter)="onMouseEnter('everardo')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
               industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
@@ -295,7 +415,7 @@
           <img src="assets/equipo/Oliver.png" />
         </div>
 
-        <div class="text-1 text-align-center">Dr. Oliver López Corona</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'oliver'">Dr. Oliver López Corona</div>
         <div class="text-2 text-align-center">Física Aplicada a la Ecologia</div>
 
         <ng-container
@@ -303,7 +423,7 @@
           (mouseenter)="onMouseEnter('oliver')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Fisico e investigador de Cátedras CONACyT en CONABIO, trabajo principalmente en un marco teórico
               (termodinámico-informacional) de la Salud Ecosistémica que incluya el estado actual de salud en términos
@@ -331,7 +451,9 @@
           <img src="assets/equipo/Julian.png" />
         </div>
 
-        <div class="text-1 text-align-center">Mtro. Julián Equihua Benítez</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'julian'">
+          Mtro. Julián Equihua Benítez
+        </div>
         <div class="text-2 text-align-center">Ciencia de Datos</div>
 
         <ng-container
@@ -339,7 +461,7 @@
           (mouseenter)="onMouseEnter('julian')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Matemático aplicado y geomático. Estoy interesado en la aplicación de la Ciencia de Datos a los problemas
               ecológicos de gran escala. He trabajado principalmente en desarrollar algoritmos de detección de cambios
@@ -365,11 +487,13 @@
           <img src="assets/equipo/Alex.jpg" />
         </div>
 
-        <div class="text-1 text-align-center">Dr. Alejandro Ponce Mendoza</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'alex'">
+          Dr. Alejandro Ponce Mendoza
+        </div>
         <div class="text-2 text-align-center">Ecología Numérica</div>
 
         <ng-container *ngIf="hoverItemId === 'alex'" (mouseenter)="onMouseEnter('alex')" (mouseleave)="onMouseLeave()">
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               ¡Hola! Soy Alex. Estoy interesado en la ecología numérica y funcional y como visualizar esta información
               para la toma de decisiones. Realicé estudios de Tecnología de Alimentos (UIA) y después de trabajar
@@ -404,7 +528,9 @@
           <img src="assets/equipo/Miguel.jpg" />
         </div>
 
-        <div class="text-1 text-align-center">Mtro. Miguel Angel Piña Avelino</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'miguel'">
+          Mtro. Miguel Angel Piña Avelino
+        </div>
         <div class="text-2 text-align-center">Ciencias e Ingeniería de la Computación</div>
 
         <ng-container
@@ -412,7 +538,7 @@
           (mouseenter)="onMouseEnter('miguel')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Candidato a Doctor en Ciencias e Ingeniería de la Computación por la UNAM. Tengo interés en la computación
               teórica y práctica.
@@ -441,7 +567,9 @@
           <img src="assets/equipo/Francisco.jpg" />
         </div>
 
-        <div class="text-1 text-align-center">Ing. Francisco Javier Ramírez Paredes</div>
+        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'francisco'">
+          Ing. Francisco Javier Ramírez Paredes
+        </div>
         <div class="text-2 text-align-center">Ciencias e Ingeniería de la Computación</div>
 
         <ng-container
@@ -449,7 +577,7 @@
           (mouseenter)="onMouseEnter('francisco')"
           (mouseleave)="onMouseLeave()"
         >
-          <div id="box" class="text-pop-1">
+          <div class="box-popup text-popup-1">
             <p>
               Ingeniero de Software. Experimentado en los procesos de construcción y despliegue de sistemas de software,
               con todo lo que ello implica.
