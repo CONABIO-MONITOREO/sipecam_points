@@ -28,13 +28,15 @@ export class AboutComponent implements OnInit {
   timeout1s = 1000;
   introStarted = false;
   introState = 0;
-  bgColor = 'white';
+  bgColor = '#FFF';
+  bgIsDark = true;
 
   startIntro = async () => {
     await new Promise((resolve) => {
       setTimeout(() => {
         this.introState = 1;
         this.bgColor = '#000';
+        this.bgIsDark = true;
         resolve(true);
       }, this.timeout1s);
     });
@@ -101,6 +103,7 @@ export class AboutComponent implements OnInit {
       setTimeout(() => {
         this.introState = 8.1;
         this.bgColor = '#FFF';
+        this.bgIsDark = false;
         this.state9();
         resolve(true);
       }, this.timeout1s);

@@ -47,11 +47,25 @@
 .flex-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-item-1 {
   flex-basis: 100%;
-  flex-grow: 1;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.flex-item-50 {
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.flex-item-25 {
+  flex-basis: 24%;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 .margin-top-0 {
@@ -122,6 +136,22 @@
   width: 100%;
 }
 
+.box-photo-container {
+  min-width: 260px;
+  min-height: 260px;
+  max-width: 360px;
+  height: 360px;
+  border: 1px solid rgb(187, 189, 189);
+}
+
+.box-section {
+  min-width: 260px;
+  min-height: 260px;
+  max-width: 360px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
 .box-full {
   width: 100%;
   height: 100%;
@@ -135,6 +165,37 @@
 
 // text
 // ------- -------
+
+h1 {
+  text-align: center;
+}
+
+.text-1 {
+  padding-top: 10px;
+  font-size: 14px;
+  // color: rgb(40, 47, 51);
+}
+
+.text-2 {
+  font-size: 12px;
+  font-weight: lighter;
+  color: rgb(125, 129, 131);
+}
+
+.info {
+  align-self: flex-end;
+  margin: 3rem 1rem 1rem;
+  text-align: right;
+  font-size: 0.85em;
+  font-style: italic;
+  font-family: serif;
+  opacity: 0.75;
+
+  a {
+    color: inherit;
+  }
+}
+
 .caption {
   position: absolute;
   left: 0;
@@ -150,6 +211,10 @@
     font-size: 25px;
     letter-spacing: 10px;
   }
+}
+
+.text-white {
+  color: #fff;
 }
 
 .text-bold {
@@ -324,36 +389,6 @@
   background-image: url(../../assets/equipo/equipo.jpg);
 }
 
-h1 {
-  text-align: center;
-}
-
-.text-1 {
-  padding-top: 10px;
-  font-size: 14px;
-  color: rgb(40, 47, 51);
-}
-
-.text-2 {
-  font-size: 12px;
-  font-weight: lighter;
-  color: rgb(125, 129, 131);
-}
-
-.info {
-  align-self: flex-end;
-  margin: 3rem 1rem 1rem;
-  text-align: right;
-  font-size: 0.85em;
-  font-style: italic;
-  font-family: serif;
-  opacity: 0.75;
-
-  a {
-    color: inherit;
-  }
-}
-
 .position-relative {
   position: relative;
 }
@@ -365,8 +400,8 @@ h1 {
 // photos
 // ------- -------
 .photo {
-  width: 360px;
-  height: 360px;
+  width: 100%;
+  height: 100%;
   text-align: center;
   padding: 25px;
   padding-bottom: 0px;

@@ -97,18 +97,18 @@
 
   <div class="margin-x1">
     <section>
-      <div class="box-title">
+      <div class="box-title" [class.text-white]="bgIsDark">
         <span>Proyecto</span>
       </div>
 
-      <div class="box-subtitle">
+      <div class="box-subtitle" [class.text-white]="bgIsDark">
         Tiene como objetivo reconocer la importancia en que la biodiversidad está asociada al bienestar de la salud
         humana.
       </div>
     </section>
 
     <div class="flex-row">
-      <section class="text-section box-1 flex-item-1">
+      <section class="text-section box-1 flex-item-50" [class.text-white]="bgIsDark">
         <p>
           Los Sitios Permanentes de Calibración y Monitoreo de la Biodiversidad (SiPeCaM) es un proyecto nacional que
           tiene como objetivo reconocer la importancia en que la biodiversidad está asociada al bienestar de la salud
@@ -117,7 +117,7 @@
         </p>
       </section>
 
-      <section class="text-section box-1 flex-item-1">
+      <section class="text-section box-1 flex-item-50" [class.text-white]="bgIsDark">
         <p>
           Este proyecto es de carácter nacional y está diseñado para ser instalado y resguardado por las comunidades
           locales e indígenas que habitan dichos territorios, en un esquema de monitoreo comunitario y ciencia ciudadana
@@ -128,7 +128,7 @@
     </div>
   </div>
 
-  <div>
+  <div [class.text-white]="bgIsDark">
     <div class="flex-row margin-x1">
       <section class="text-section box-1 flex-item-1 flex-col align-items-center">
         <p class="flex-item-1 h-auto">
@@ -144,7 +144,7 @@
 
   <div class="margin-x1 margin-y1">
     <section>
-      <div class="box-title">
+      <div class="box-title" [class.text-white]="bgIsDark">
         <span>Equipo</span>
       </div>
     </section>
@@ -152,19 +152,21 @@
     <div class="flex-row justify-content-space-between align-items-flex-start padding-1">
       <!-- 1. Rodolfo-->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'rodolfo'"
         (mouseenter)="onMouseEnter('rodolfo')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-1"
-          [class.photo-1-hover]="hoverItemId === 'rodolfo'"
-        >
-          <img src="assets/equipo/RDirzo.jpg" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-1"
+            [class.photo-1-hover]="hoverItemId === 'rodolfo'"
+          >
+            <img src="assets/equipo/RDirzo.jpg" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'rodolfo'">Dr. Rodolfo Dirzo</div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Dr. Rodolfo Dirzo</div>
         <div class="text-2 text-align-center">Biología</div>
 
         <ng-container
@@ -193,21 +195,21 @@
 
       <!-- 2. Mariana -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'mariana'"
         (mouseenter)="onMouseEnter('mariana')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-2"
-          [class.photo-2-hover]="hoverItemId === 'mariana'"
-        >
-          <img src="assets/equipo/Mariana.jpg" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-2"
+            [class.photo-2-hover]="hoverItemId === 'mariana'"
+          >
+            <img src="assets/equipo/Mariana.jpg" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'mariana'">
-          Dr. Mariana Munguía Carrara
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Dr. Mariana Munguía Carrara</div>
         <div class="text-2 text-align-center">Biología Ambiental</div>
 
         <ng-container
@@ -233,21 +235,21 @@
 
       <!-- 3. Pedro -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'pedro'"
         (mouseenter)="onMouseEnter('pedro')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-3"
-          [class.photo-3-hover]="hoverItemId === 'pedro'"
-        >
-          <img src="assets/equipo/Pedro.png" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-3"
+            [class.photo-3-hover]="hoverItemId === 'pedro'"
+          >
+            <img src="assets/equipo/Pedro.png" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'pedro'">
-          Biól. Pedro Gabriel Díaz Maeda
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Biól. Pedro Gabriel Díaz Maeda</div>
         <div class="text-2 text-align-center">Ecología y Sistemas de Información Geográfica</div>
 
         <ng-container
@@ -275,21 +277,21 @@
 
       <!-- 4. Santiago -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'santiago'"
         (mouseenter)="onMouseEnter('santiago')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-4"
-          [class.photo-4-hover]="hoverItemId === 'santiago'"
-        >
-          <img src="assets/equipo/Santiago.jpg" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-4"
+            [class.photo-4-hover]="hoverItemId === 'santiago'"
+          >
+            <img src="assets/equipo/Santiago.jpg" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'santiago'">
-          Mtro. Santiago Martínez Balvanera
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Santiago Martínez Balvanera</div>
         <div class="text-2 text-align-center">Matemáticas</div>
 
         <ng-container
@@ -307,26 +309,24 @@
           </div>
         </ng-container>
       </section>
-    </div>
 
-    <div class="flex-row justify-content-space-between align-items-flex-start padding-1">
       <!-- 5. Everardo -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'everardo'"
         (mouseenter)="onMouseEnter('everardo')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-5"
-          [class.photo-5-hover]="hoverItemId === 'everardo'"
-        >
-          <img src="assets/equipo/Everardo.png" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-5"
+            [class.photo-5-hover]="hoverItemId === 'everardo'"
+          >
+            <img src="assets/equipo/Everardo.png" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'everardo'">
-          Mtro. Everardo Robredo Esquivelzeta
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Everardo Robredo Esquivelzeta</div>
         <div class="text-2 text-align-center">Biología</div>
 
         <ng-container
@@ -349,19 +349,21 @@
 
       <!-- 6. Oliver -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'oliver'"
         (mouseenter)="onMouseEnter('oliver')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-6"
-          [class.photo-6-hover]="hoverItemId === 'oliver'"
-        >
-          <img src="assets/equipo/Oliver.png" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-6"
+            [class.photo-6-hover]="hoverItemId === 'oliver'"
+          >
+            <img src="assets/equipo/Oliver.png" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'oliver'">Dr. Oliver López Corona</div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Dr. Oliver López Corona</div>
         <div class="text-2 text-align-center">Física Aplicada a la Ecologia</div>
 
         <ng-container
@@ -385,21 +387,21 @@
 
       <!-- 7. Julian -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'julian'"
         (mouseenter)="onMouseEnter('julian')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-7"
-          [class.photo-7-hover]="hoverItemId === 'julian'"
-        >
-          <img src="assets/equipo/Julian.png" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-7"
+            [class.photo-7-hover]="hoverItemId === 'julian'"
+          >
+            <img src="assets/equipo/Julian.png" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'julian'">
-          Mtro. Julián Equihua Benítez
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Julián Equihua Benítez</div>
         <div class="text-2 text-align-center">Ciencia de Datos</div>
 
         <ng-container
@@ -421,21 +423,21 @@
 
       <!-- 8. Alex -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'alex'"
         (mouseenter)="onMouseEnter('alex')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-8"
-          [class.photo-8-hover]="hoverItemId === 'alex'"
-        >
-          <img src="assets/equipo/Alex.jpg" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-8"
+            [class.photo-8-hover]="hoverItemId === 'alex'"
+          >
+            <img src="assets/equipo/Alex.jpg" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'alex'">
-          Dr. Alejandro Ponce Mendoza
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Dr. Alejandro Ponce Mendoza</div>
         <div class="text-2 text-align-center">Ecología Numérica</div>
 
         <ng-container *ngIf="hoverItemId === 'alex'" (mouseenter)="onMouseEnter('alex')" (mouseleave)="onMouseLeave()">
@@ -457,26 +459,24 @@
           </div>
         </ng-container>
       </section>
-    </div>
 
-    <div class="flex-row justify-content-space-between align-items-flex-start padding-1">
       <!-- 9. Miguel -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'miguel'"
         (mouseenter)="onMouseEnter('miguel')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-9"
-          [class.photo-9-hover]="hoverItemId === 'miguel'"
-        >
-          <img src="assets/equipo/Miguel.jpg" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-9"
+            [class.photo-9-hover]="hoverItemId === 'miguel'"
+          >
+            <img src="assets/equipo/Miguel.jpg" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'miguel'">
-          Mtro. Miguel Angel Piña Avelino
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Miguel Angel Piña Avelino</div>
         <div class="text-2 text-align-center">Ciencias e Ingeniería de la Computación</div>
 
         <ng-container
@@ -501,21 +501,21 @@
 
       <!-- 10. Francisco -->
       <section
-        class="position-relative"
+        class="position-relative flex-item-25 box-section"
         [class.section-shadow]="hoverItemId === 'francisco'"
         (mouseenter)="onMouseEnter('francisco')"
         (mouseleave)="onMouseLeave()"
       >
-        <div
-          class="flex-col justify-content-center align-items-center photo photo-10"
-          [class.photo-10-hover]="hoverItemId === 'francisco'"
-        >
-          <img src="assets/equipo/Francisco.jpg" />
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-10"
+            [class.photo-10-hover]="hoverItemId === 'francisco'"
+          >
+            <img src="assets/equipo/Francisco.jpg" />
+          </div>
         </div>
 
-        <div class="text-1 text-align-center" [class.text-bold]="hoverItemId === 'francisco'">
-          Ing. Francisco Javier Ramírez Paredes
-        </div>
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Ing. Francisco Javier Ramírez Paredes</div>
         <div class="text-2 text-align-center">Ciencias e Ingeniería de la Computación</div>
 
         <ng-container
