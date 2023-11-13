@@ -108,6 +108,12 @@ export class AboutComponent implements OnInit {
   };
 
   state9 = async () => {
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, this.timeout1s);
+    });
+
     for (let i = 1; i <= 7; i++) {
       await new Promise((resolve) => {
         setTimeout(() => {
