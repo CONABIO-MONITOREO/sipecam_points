@@ -10,6 +10,10 @@
   transition: background-color 1000ms linear;
 }
 
+.font-family {
+  font-family: "Poppins", serif;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -101,6 +105,17 @@
     letter-spacing: 5px;
     font-weight: 700;
   }
+}
+
+.box-subtitle {
+  height: auto;
+  padding: 18px;
+  padding-top: 20px;
+  width: 100%;
+  text-align: left;
+  color: #000;
+  font-size: 33px;
+  font-weight: 700;
 }
 
 .box-1 {
@@ -237,6 +252,65 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(../../assets/bg/Fauna_Flora_SiPeCaM-08.png);
+}
+// ------- -------
+
+// ------- -------
+.lines-container {
+  height: 50px;
+}
+.line {
+  width: 100px;
+  height: 50px;
+}
+
+.bg-color-2 {
+  border-top: 4px solid rgb(250, 84, 46);
+}
+.bg-color-2:hover {
+  border: 4px solid rgb(250, 84, 46);
+}
+
+.bg-color-3 {
+  border-top: 4px solid rgb(66, 74, 139);
+}
+.bg-color-3:hover {
+  border: 4px solid rgb(66, 74, 139);
+}
+
+.bg-color-4 {
+  border-top: 4px solid rgb(76, 163, 215);
+}
+.bg-color-4:hover {
+  border: 4px solid rgb(76, 163, 215);
+}
+
+.bg-color-5 {
+  border-top: 4px solid rgb(246, 209, 72);
+}
+.bg-color-5:hover {
+  border: 4px solid rgb(246, 209, 72);
+}
+
+.bg-color-6 {
+  border-top: 4px solid rgb(232, 146, 79);
+}
+.bg-color-6:hover {
+  border: 4px solid rgb(232, 146, 79);
+}
+
+.bg-color-7 {
+  border-top: 4px solid rgb(221, 88, 82);
+}
+.bg-color-7:hover {
+  border: 4px solid rgb(221, 88, 82);
+}
+
+.bg-color-8 {
+  border-top: 4px solid rgb(84, 183, 186);
+}
+.bg-color-8:hover {
+  border: 4px solid rgb(84, 183, 186);
 }
 // ------- -------
 
