@@ -45,6 +45,7 @@ export class AboutComponent implements OnInit {
       setTimeout(() => {
         this.introState = 1.1;
         this.state2();
+        resolve(true);
       }, this.timeout1s * 2);
     });
   };
@@ -102,8 +103,6 @@ export class AboutComponent implements OnInit {
     await new Promise((resolve) => {
       setTimeout(() => {
         this.introState = 8.1;
-        this.bgColor = '#FFF';
-        this.bgIsDark = false;
         this.state9();
         resolve(true);
       }, this.timeout1s);
@@ -113,25 +112,22 @@ export class AboutComponent implements OnInit {
   state9 = async () => {
     await new Promise((resolve) => {
       setTimeout(() => {
+        this.introState = 9;
         resolve(true);
       }, this.timeout1s);
     });
-
-    for (let i = 1; i <= 7; i++) {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          this.introState = 101 + i;
-          resolve(true);
-        }, this.timeout / 2);
-      });
-    }
 
     await new Promise((resolve) => {
       setTimeout(() => {
+        this.bgColor = '#FFF';
+        this.bgIsDark = false;
+        this.state100();
         resolve(true);
       }, this.timeout1s);
     });
+  };
 
+  state100 = async () => {
     await new Promise((resolve) => {
       setTimeout(() => {
         this.introState = 100;

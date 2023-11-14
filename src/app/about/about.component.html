@@ -10,7 +10,7 @@
 <div class="content" [style.background-color]="bgColor">
   <section class="flex-item-1">
     <div class="position-relative intro-box" [style.background-color]="bgColor">
-      <div *ngIf="introState <= 1" class="bg-logo-1 position-absolute box-full"></div>
+      <div @logoOut *ngIf="introState <= 1" class="bg-logo-1 position-absolute box-full"></div>
       <div
         @logoOut
         *ngIf="introState === 2 || introState >= 102 || hoverLineId === 2"
@@ -46,49 +46,49 @@
         *ngIf="introState === 8 || introState >= 108 || hoverLineId === 8"
         class="bg-logo-8 position-absolute box-full"
       ></div>
-      <div *ngIf="introState === 100 && hoverLineId === 0" class="bg-logo-100 position-absolute box-full"></div>
+      <div *ngIf="introState >= 9 && hoverLineId === 0" class="bg-logo-100 position-absolute box-full"></div>
     </div>
   </section>
 
   <div class="flex-row margin-x1 justify-content-center align-items-center lines-container">
     <div
-      *ngIf="introState >= 102 || introState === 100"
+      *ngIf="introState === 2 || introState >= 9"
       class="line bg-color-2"
       (mouseenter)="onLineEnter(2)"
       (mouseleave)="onLineLeave()"
     ></div>
     <div
-      *ngIf="introState >= 103 || introState === 100"
+      *ngIf="introState === 3 || introState >= 9"
       class="line bg-color-3"
       (mouseenter)="onLineEnter(3)"
       (mouseleave)="onLineLeave()"
     ></div>
     <div
-      *ngIf="introState >= 104 || introState === 100"
+      *ngIf="introState === 4 || introState >= 9"
       class="line bg-color-4"
       (mouseenter)="onLineEnter(4)"
       (mouseleave)="onLineLeave()"
     ></div>
     <div
-      *ngIf="introState >= 105 || introState === 100"
+      *ngIf="introState === 5 || introState >= 9"
       class="line bg-color-5"
       (mouseenter)="onLineEnter(5)"
       (mouseleave)="onLineLeave()"
     ></div>
     <div
-      *ngIf="introState >= 106 || introState === 100"
+      *ngIf="introState === 6 || introState >= 9"
       class="line bg-color-6"
       (mouseenter)="onLineEnter(6)"
       (mouseleave)="onLineLeave()"
     ></div>
     <div
-      *ngIf="introState >= 107 || introState === 100"
+      *ngIf="introState === 7 || introState >= 9"
       class="line bg-color-7"
       (mouseenter)="onLineEnter(7)"
       (mouseleave)="onLineLeave()"
     ></div>
     <div
-      *ngIf="introState >= 108 || introState === 100"
+      *ngIf="introState === 8 || introState >= 9"
       class="line bg-color-8"
       (mouseenter)="onLineEnter(8)"
       (mouseleave)="onLineLeave()"
@@ -100,24 +100,16 @@
       <div class="box-title" [class.text-white]="bgIsDark">
         <span>Proyecto</span>
       </div>
-
-      <div class="box-subtitle" [class.text-white]="bgIsDark">
-        Tiene como objetivo reconocer la importancia en que la biodiversidad está asociada al bienestar de la salud
-        humana.
-      </div>
     </section>
 
-    <div class="flex-row">
-      <section class="text-section box-1 flex-item-50" [class.text-white]="bgIsDark">
+    <div class="flex-row align-items-flex-start flex-wrap-reverse">
+      <section class="text-section box-1 flex-item-70 flex-grow-1" [class.text-white]="bgIsDark">
         <p>
           Los Sitios Permanentes de Calibración y Monitoreo de la Biodiversidad (SiPeCaM) es un proyecto nacional que
           tiene como objetivo reconocer la importancia en que la biodiversidad está asociada al bienestar de la salud
           humana en relación con las enfermedades zoonóticas, mediante la evaluación de la condición de los ecosistemas
           terrestres en el país.
         </p>
-      </section>
-
-      <section class="text-section box-1 flex-item-50" [class.text-white]="bgIsDark">
         <p>
           Este proyecto es de carácter nacional y está diseñado para ser instalado y resguardado por las comunidades
           locales e indígenas que habitan dichos territorios, en un esquema de monitoreo comunitario y ciencia ciudadana
@@ -125,13 +117,19 @@
           Universidad Nacional Autónoma de México.
         </p>
       </section>
+
+      <section class="text-section box-1 flex-item-30 flex-grow-1" [class.text-white]="bgIsDark">
+        <div class="box-bullet" [class.text-white]="bgIsDark">
+          La biodiversidad se asocia al bienestar de la salud humana.
+        </div>
+      </section>
     </div>
   </div>
 
   <div [class.text-white]="bgIsDark">
     <div class="flex-row margin-x1">
       <section class="text-section box-1 flex-item-1 flex-col align-items-center">
-        <p class="flex-item-1 h-auto">
+        <p class="flex-item-1 h-auto flex-grow-1">
           SiPeCaM permite evaluar el efecto de la defaunación —extinción de individuos y especies animales— producto de
           la actividad humana mediante cámaras trampa y grabadoras de sonidos. Parte de los resultados de este proyecto
           permitirán además dar recomendaciones pertinentes en la evaluación de la efectividad de proyectos sustentables
@@ -149,7 +147,7 @@
       </div>
     </section>
 
-    <div class="flex-row justify-content-space-between align-items-flex-start padding-1">
+    <div class="flex-row justify-content-space-evenly align-items-flex-start padding-1">
       <!-- 1. Rodolfo-->
       <section
         class="position-relative flex-item-25 box-section"
@@ -275,41 +273,6 @@
         </ng-container>
       </section>
 
-      <!-- 4. Santiago -->
-      <section
-        class="position-relative flex-item-25 box-section"
-        [class.section-shadow]="hoverItemId === 'santiago'"
-        (mouseenter)="onMouseEnter('santiago')"
-        (mouseleave)="onMouseLeave()"
-      >
-        <div class="box-photo-container">
-          <div
-            class="flex-col justify-content-center align-items-center photo photo-4"
-            [class.photo-4-hover]="hoverItemId === 'santiago'"
-          >
-            <img src="assets/equipo/Santiago.jpg" />
-          </div>
-        </div>
-
-        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Santiago Martínez Balvanera</div>
-        <div class="text-2 text-align-center">Matemáticas</div>
-
-        <ng-container
-          *ngIf="hoverItemId === 'santiago'"
-          (mouseenter)="onMouseEnter('santiago')"
-          (mouseleave)="onMouseLeave()"
-        >
-          <div class="box-popup text-popup-1">
-            <p>
-              Matemático. Me interesa estudiar las formas en las que la biodiversidad manifiesta, a través del sonido,
-              información acerca de su composición y dinámica. Junto con mi equipo, trabajamos para generar herramientas
-              analíticas y computacionales que permitan extraer información ecológica de grabaciones sonoras de campo.
-              Buscamos impulsar a la acústica como un instrumento eficiente de monitoreo de la biodiversidad en México.
-            </p>
-          </div>
-        </ng-container>
-      </section>
-
       <!-- 5. Everardo -->
       <section
         class="position-relative flex-item-25 box-section"
@@ -342,80 +305,6 @@
               electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
               of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
               like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div>
-        </ng-container>
-      </section>
-
-      <!-- 6. Oliver -->
-      <section
-        class="position-relative flex-item-25 box-section"
-        [class.section-shadow]="hoverItemId === 'oliver'"
-        (mouseenter)="onMouseEnter('oliver')"
-        (mouseleave)="onMouseLeave()"
-      >
-        <div class="box-photo-container">
-          <div
-            class="flex-col justify-content-center align-items-center photo photo-6"
-            [class.photo-6-hover]="hoverItemId === 'oliver'"
-          >
-            <img src="assets/equipo/Oliver.png" />
-          </div>
-        </div>
-
-        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Dr. Oliver López Corona</div>
-        <div class="text-2 text-align-center">Física Aplicada a la Ecologia</div>
-
-        <ng-container
-          *ngIf="hoverItemId === 'oliver'"
-          (mouseenter)="onMouseEnter('oliver')"
-          (mouseleave)="onMouseLeave()"
-        >
-          <div class="box-popup text-popup-1">
-            <p>
-              Fisico e investigador de Cátedras CONACyT en CONABIO, trabajo principalmente en un marco teórico
-              (termodinámico-informacional) de la Salud Ecosistémica que incluya el estado actual de salud en términos
-              de composición, estructura y función (Integridad); la dinámica del sistema (criticalidad); y el tipo de
-              respuesta a perturbaciones externas (Antifragilidad). En esa misma línea, busco cómo expandir nuestro
-              marco teórico a la otras escalas para medir la salud planetaria y relacionado con ello, cómo reinterpretar
-              la crisis planetaria en términos no de un Antropoceno sino Tecnoceno. Página personal:
-              www.lopezoliver.otrasenda.org
-            </p>
-          </div>
-        </ng-container>
-      </section>
-
-      <!-- 7. Julian -->
-      <section
-        class="position-relative flex-item-25 box-section"
-        [class.section-shadow]="hoverItemId === 'julian'"
-        (mouseenter)="onMouseEnter('julian')"
-        (mouseleave)="onMouseLeave()"
-      >
-        <div class="box-photo-container">
-          <div
-            class="flex-col justify-content-center align-items-center photo photo-7"
-            [class.photo-7-hover]="hoverItemId === 'julian'"
-          >
-            <img src="assets/equipo/Julian.png" />
-          </div>
-        </div>
-
-        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Julián Equihua Benítez</div>
-        <div class="text-2 text-align-center">Ciencia de Datos</div>
-
-        <ng-container
-          *ngIf="hoverItemId === 'julian'"
-          (mouseenter)="onMouseEnter('julian')"
-          (mouseleave)="onMouseLeave()"
-        >
-          <div class="box-popup text-popup-1">
-            <p>
-              Matemático aplicado y geomático. Estoy interesado en la aplicación de la Ciencia de Datos a los problemas
-              ecológicos de gran escala. He trabajado principalmente en desarrollar algoritmos de detección de cambios
-              con base en imágenes satelitales, en flujos de trabajo para generar cartografía de parámetros
-              estructurales de vegetación a nivel nacional para México y en el modelado y estimación de Integridad
-              Ecosistémica de los ecosistemas del país.
             </p>
           </div>
         </ng-container>
@@ -533,6 +422,115 @@
               siento que es grande la deuda que tenemos en ese aspecto. ¿Cuál es tu definición favorita de la
               naturaleza? Me gusta esa definición que la define como una expresión sublime del amor, ciencia y trabajo
               de Quien la creó, pues menciona los aspectos clave para su cuidado y preservación.
+            </p>
+          </div>
+        </ng-container>
+      </section>
+
+      <!-- 4. Santiago -->
+      <section
+        class="position-relative flex-item-25 box-section"
+        [class.section-shadow]="hoverItemId === 'santiago'"
+        (mouseenter)="onMouseEnter('santiago')"
+        (mouseleave)="onMouseLeave()"
+      >
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-4"
+            [class.photo-4-hover]="hoverItemId === 'santiago'"
+          >
+            <img src="assets/equipo/Santiago.jpg" />
+          </div>
+        </div>
+
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Santiago Martínez Balvanera</div>
+        <div class="text-2 text-align-center">Matemáticas</div>
+
+        <ng-container
+          *ngIf="hoverItemId === 'santiago'"
+          (mouseenter)="onMouseEnter('santiago')"
+          (mouseleave)="onMouseLeave()"
+        >
+          <div class="box-popup text-popup-1">
+            <p>
+              Matemático. Me interesa estudiar las formas en las que la biodiversidad manifiesta, a través del sonido,
+              información acerca de su composición y dinámica. Junto con mi equipo, trabajamos para generar herramientas
+              analíticas y computacionales que permitan extraer información ecológica de grabaciones sonoras de campo.
+              Buscamos impulsar a la acústica como un instrumento eficiente de monitoreo de la biodiversidad en México.
+            </p>
+          </div>
+        </ng-container>
+      </section>
+
+      <!-- 6. Oliver -->
+      <section
+        class="position-relative flex-item-25 box-section"
+        [class.section-shadow]="hoverItemId === 'oliver'"
+        (mouseenter)="onMouseEnter('oliver')"
+        (mouseleave)="onMouseLeave()"
+      >
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-6"
+            [class.photo-6-hover]="hoverItemId === 'oliver'"
+          >
+            <img src="assets/equipo/Oliver.png" />
+          </div>
+        </div>
+
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Dr. Oliver López Corona</div>
+        <div class="text-2 text-align-center">Física Aplicada a la Ecologia</div>
+
+        <ng-container
+          *ngIf="hoverItemId === 'oliver'"
+          (mouseenter)="onMouseEnter('oliver')"
+          (mouseleave)="onMouseLeave()"
+        >
+          <div class="box-popup text-popup-1">
+            <p>
+              Fisico e investigador de Cátedras CONACyT en CONABIO, trabajo principalmente en un marco teórico
+              (termodinámico-informacional) de la Salud Ecosistémica que incluya el estado actual de salud en términos
+              de composición, estructura y función (Integridad); la dinámica del sistema (criticalidad); y el tipo de
+              respuesta a perturbaciones externas (Antifragilidad). En esa misma línea, busco cómo expandir nuestro
+              marco teórico a la otras escalas para medir la salud planetaria y relacionado con ello, cómo reinterpretar
+              la crisis planetaria en términos no de un Antropoceno sino Tecnoceno. Página personal:
+              www.lopezoliver.otrasenda.org
+            </p>
+          </div>
+        </ng-container>
+      </section>
+
+      <!-- 7. Julian -->
+      <section
+        class="position-relative flex-item-25 box-section"
+        [class.section-shadow]="hoverItemId === 'julian'"
+        (mouseenter)="onMouseEnter('julian')"
+        (mouseleave)="onMouseLeave()"
+      >
+        <div class="box-photo-container">
+          <div
+            class="flex-col justify-content-center align-items-center photo photo-7"
+            [class.photo-7-hover]="hoverItemId === 'julian'"
+          >
+            <img src="assets/equipo/Julian.png" />
+          </div>
+        </div>
+
+        <div class="text-1 text-align-center" [class.text-white]="bgIsDark">Mtro. Julián Equihua Benítez</div>
+        <div class="text-2 text-align-center">Ciencia de Datos</div>
+
+        <ng-container
+          *ngIf="hoverItemId === 'julian'"
+          (mouseenter)="onMouseEnter('julian')"
+          (mouseleave)="onMouseLeave()"
+        >
+          <div class="box-popup text-popup-1">
+            <p>
+              Matemático aplicado y geomático. Estoy interesado en la aplicación de la Ciencia de Datos a los problemas
+              ecológicos de gran escala. He trabajado principalmente en desarrollar algoritmos de detección de cambios
+              con base en imágenes satelitales, en flujos de trabajo para generar cartografía de parámetros
+              estructurales de vegetación a nivel nacional para México y en el modelado y estimación de Integridad
+              Ecosistémica de los ecosistemas del país.
             </p>
           </div>
         </ng-container>
