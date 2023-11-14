@@ -8,7 +8,7 @@
 </ion-header>
 
 <div class="content" [style.background-color]="bgColor">
-  <section class="flex-item-1">
+  <section>
     <div class="position-relative intro-box" [style.background-color]="bgColor">
       <div @logoOut *ngIf="introState <= 1" class="bg-logo-1 position-absolute box-full"></div>
       <div
@@ -50,7 +50,7 @@
     </div>
   </section>
 
-  <div class="flex-row margin-x1 justify-content-center align-items-center lines-container">
+  <div class="flex-row margin-x1 padding-top-a justify-content-center align-items-center lines-container">
     <div
       *ngIf="introState === 2 || introState >= 9"
       class="line bg-color-2"
