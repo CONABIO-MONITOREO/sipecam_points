@@ -10,7 +10,7 @@ export class TeamComponent {
   /**
    * Base path for the background images.
    */
-  static baseBackgroundImagePath = '../../../../assets/bg';
+  static baseBackgroundImagePath = './assets/bg';
   @Input('dark') dark: boolean;
 
   // ------- -------
