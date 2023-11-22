@@ -1,0 +1,65 @@
+<div>
+  <div class="box-intro bg-color-transition" [style.background-color]="bgColor">
+    <div @logoOut *ngIf="introState <= 1" class="bg-logo-1 box-bg"></div>
+    <div @logoOut *ngIf="introState === 2 || introState >= 102 || hoverLineId === 2" class="bg-logo-2 box-bg"></div>
+    <div @logoOut *ngIf="introState === 3 || introState >= 103 || hoverLineId === 3" class="bg-logo-3 box-bg"></div>
+    <div @logoOut *ngIf="introState === 4 || introState >= 104 || hoverLineId === 4" class="bg-logo-4 box-bg"></div>
+    <div @logoOut *ngIf="introState === 5 || introState >= 105 || hoverLineId === 5" class="bg-logo-5 box-bg"></div>
+    <div @logoOut *ngIf="introState === 6 || introState >= 106 || hoverLineId === 6" class="bg-logo-6 box-bg"></div>
+    <div @logoOut *ngIf="introState === 7 || introState >= 107 || hoverLineId === 7" class="bg-logo-7 box-bg"></div>
+    <div @logoOut *ngIf="introState === 8 || introState >= 108 || hoverLineId === 8" class="bg-logo-8 box-bg"></div>
+    <div *ngIf="introState >= 9 && hoverLineId === 0" class="bg-logo-100 box-bg"></div>
+  </div>
+
+  <div class="flex-box-a lines-container">
+    <div
+      @lineIn
+      *ngIf="introState >= 2 || introState >= 9"
+      class="line bg-color-2"
+      (mouseenter)="onLineEnter(2)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      @lineIn
+      *ngIf="introState >= 3 || introState >= 9"
+      class="line bg-color-3"
+      (mouseenter)="onLineEnter(3)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      @lineIn
+      *ngIf="introState >= 4 || introState >= 9"
+      class="line bg-color-4"
+      (mouseenter)="onLineEnter(4)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      @lineIn
+      *ngIf="introState >= 5 || introState >= 9"
+      class="line bg-color-5"
+      (mouseenter)="onLineEnter(5)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      @lineIn
+      *ngIf="introState >= 6 || introState >= 9"
+      class="line bg-color-6"
+      (mouseenter)="onLineEnter(6)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      @lineIn
+      *ngIf="introState >= 7 || introState >= 9"
+      class="line bg-color-7"
+      (mouseenter)="onLineEnter(7)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+    <div
+      @lineIn
+      *ngIf="introState >= 8 || introState >= 9"
+      class="line bg-color-8"
+      (mouseenter)="onLineEnter(8)"
+      (mouseleave)="onLineLeave()"
+    ></div>
+  </div>
+</div>
