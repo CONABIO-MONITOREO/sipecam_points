@@ -19,6 +19,11 @@
 .margin-x1 {
   margin-left: 13%;
   margin-right: 13%;
+
+  @media screen and (max-width: 400px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
 .margin-y1 {
