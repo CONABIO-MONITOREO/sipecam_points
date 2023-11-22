@@ -24,6 +24,12 @@
     }
   }
 
+  @media screen and (max-width: 500px) {
+    span {
+      font-size: 45px;
+    }
+  }
+
   @media screen and (max-width: 400px) {
     span {
       font-size: 40px;
@@ -42,7 +48,12 @@
   padding-top: 20px;
   padding-bottom: 20px;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 600px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  @media screen and (max-width: 500px) {
     padding-left: 0px;
     padding-right: 0px;
   }

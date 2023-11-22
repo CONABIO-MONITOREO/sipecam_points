@@ -20,6 +20,12 @@
     }
   }
 
+  @media screen and (max-width: 500px) {
+    span {
+      font-size: 45px;
+    }
+  }
+
   @media screen and (max-width: 400px) {
     span {
       font-size: 40px;
@@ -37,6 +43,10 @@
 
   @media screen and (max-width: 600px) {
     font-size: 33px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 28px;
   }
 
   @media screen and (max-width: 400px) {
