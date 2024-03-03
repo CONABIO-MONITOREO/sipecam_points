@@ -761,7 +761,13 @@ export class TableroGeneralComponent implements OnInit, AfterViewInit {
           },
         })
         .toPromise();
-      let conSocio = visits.filter((v) => v.cumulus_visit.con_socio === 2);
+
+      // Excluded Cumulus
+      // ----------------
+      const excludedCumulus = ['22'];
+      const filteredVisits = visits.filter((v) => !excludedCumulus.includes(v?.cumulus_visit?.name));
+
+      let conSocio = filteredVisits.filter((v) => v.cumulus_visit.con_socio === 2);
 
       if (this.currentEcosystem !== 'todos') {
         conSocio = conSocio.filter((v) => v.cumulus_visit.ecosystem_id == this.currentEcosystem);

@@ -12,4 +12,18 @@
       <app-about-team-member [data]="item" [dark]="dark"></app-about-team-member>
     </div>
   </div>
+
+  <!-- title -->
+  <section>
+    <div class="box-title">
+      <span>Colaboradores externos</span>
+    </div>
+  </section>
+
+  <!-- members -->
+  <div class="box-members-1">
+    <div *ngFor="let item of teamExternals; index as i; trackBy: getTeamItemId" class="box-members-2">
+      <app-about-team-member [data]="item" [dark]="dark"></app-about-team-member>
+    </div>
+  </div>
 </div>

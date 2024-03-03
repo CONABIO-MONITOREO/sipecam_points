@@ -65,7 +65,7 @@ export class TeamComponent {
       styles: {
         photo: {
           divHover: {
-            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-7.jpg)`,
+            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-07.jpg)`,
           },
           img: {
             filter: 'grayscale(1) brightness(1)',
@@ -167,35 +167,6 @@ export class TeamComponent {
       },
     },
     {
-      id: 'miguel',
-      name: 'Mtro. Miguel Angel Piña Avelino',
-      area: 'Ciencias e Ingeniería de la Computación',
-      description: [
-        `Candidato a Doctor en Ciencias e Ingeniería de la Computación por la UNAM. Tengo interés en la computación
-        teórica y práctica.`,
-        `Actualmente colaboro en CONABIO para el procesamiento de datos en el monitoreo de la biodiversidad,
-        SIPECAM. Me gusta desarrollar herramientas que permitan resolver distintos tipos de problemas y en el caso
-        del monitoreo de la biodiversidad, dar mi granito de arena utilizando mi conocimiento para ayudar en la
-        conservación del medio ambiente.`,
-      ],
-      imgSrc: 'assets/equipo/Miguel.jpg',
-      styles: {
-        photo: {
-          divHover: {
-            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-18.jpg)`,
-            'background-size': '120% 120%',
-            'background-position': '-80px -80px',
-          },
-          img: {
-            filter: 'grayscale(1) brightness(1.2)',
-          },
-          imgHover: {
-            filter: 'grayscale(0) brightness(1)',
-          },
-        },
-      },
-    },
-    {
       id: 'francisco',
       name: 'Ing. Francisco Javier Ramírez Paredes',
       area: 'Ciencias e Ingeniería de la Computación',
@@ -216,6 +187,78 @@ export class TeamComponent {
           },
           img: {
             filter: 'grayscale(1) brightness(1.5)',
+          },
+          imgHover: {
+            filter: 'grayscale(0) brightness(1)',
+          },
+        },
+      },
+    },
+  ];
+  // ------- -------
+
+  // ------- -------
+  // Team members
+  // ------- -------
+  teamExternals: TeamMember[] = [
+    {
+      id: 'oliver',
+      name: 'Dr. Oliver López Corona',
+      area: 'Física Aplicada a la Ecologia',
+      description: [
+        `Fisico e investigador de Cátedras CONACyT en CONABIO, trabajo principalmente en un marco teórico
+        (termodinámico-informacional) de la Salud Ecosistémica que incluya el estado actual de salud en términos
+        de composición, estructura y función (Integridad); la dinámica del sistema (criticalidad); y el tipo de
+        respuesta a perturbaciones externas (Antifragilidad). En esa misma línea, busco cómo expandir nuestro
+        marco teórico a la otras escalas para medir la salud planetaria y relacionado con ello, cómo reinterpretar
+        la crisis planetaria en términos no de un Antropoceno sino Tecnoceno. Página personal:
+        www.lopezoliver.otrasenda.org`,
+      ],
+      imgSrc: 'assets/equipo/Oliver.png',
+      styles: {
+        photo: {
+          divHover: {
+            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-15.jpg)`,
+            'background-size': '100% 100%',
+            'background-position-x': '-110px',
+          },
+          img: {
+            filter: 'grayscale(1) brightness(1.3)',
+          },
+          imgHover: {
+            filter: 'grayscale(0) brightness(1)',
+          },
+        },
+      },
+    },
+    {
+      id: 'romeo',
+      name: 'Dr. Romeo Alberto Saldaña Vázquez',
+      area: 'Ecología/Biología',
+      description: [
+        `Romeo es académico de tiempo del Instituto de Investigaciones en Medio Ambiente Xabier
+        Gorostiaga SJ de la Universidad Iberoamericana Puebla. Es Doctor y Maestro en Ecología por
+        el Instituto de Ecología A.C. y Biólogo por la Universidad Nacional Autónoma de México.`,
+        `Sus áreas de investigación son la síntesis en ecología, la ecología urbana y comparada. Es
+        coordinador de la red de investigación “Biología, Manejo y Conservación de Fauna Nativa en
+        Ambientes Antropizados” (REFAMA). Pertenece al sistema nacional de investigadores e
+        investigadoras de CONAHCyT, nivel 2 (2020-24) en el área de Biología y Química. Cuenta con
+        más de 50 publicaciones científicas arbitradas. Sus investigaciones han aportado nuevo
+        conocimiento sobre la ecología de vertebrados y de los problemas ambientales de México las
+        cual han sido reportadas por agencias periodísticas como la BBC, La Jornada, Milenio y
+        Urbano Puebla. Colabora desde el año 2020 como profesor titular de las asignaturas de
+        Ecología, Biogeografía y Ecología urbana en la licenciatura en ciencias ambientales y
+        desarrollo sustentable, así como en la maestría en hábitat y equidad socio territorial de la
+        IBERO Puebla.`,
+      ],
+      imgSrc: 'assets/equipo/Romeo.jpg',
+      styles: {
+        photo: {
+          divHover: {
+            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-03.jpg)`,
+          },
+          img: {
+            filter: 'grayscale(1) brightness(1.2)',
           },
           imgHover: {
             filter: 'grayscale(0) brightness(1)',
@@ -244,36 +287,6 @@ export class TeamComponent {
           },
           imgHover: {
             filter: 'grayscale(0) brightness(3.5)',
-          },
-        },
-      },
-    },
-    {
-      id: 'oliver',
-      name: 'Dr. Oliver López Corona',
-      area: 'Física Aplicada a la Ecologia',
-      description: [
-        `Fisico e investigador de Cátedras CONACyT en CONABIO, trabajo principalmente en un marco teórico
-        (termodinámico-informacional) de la Salud Ecosistémica que incluya el estado actual de salud en términos
-        de composición, estructura y función (Integridad); la dinámica del sistema (criticalidad); y el tipo de
-        respuesta a perturbaciones externas (Antifragilidad). En esa misma línea, busco cómo expandir nuestro
-        marco teórico a la otras escalas para medir la salud planetaria y relacionado con ello, cómo reinterpretar
-        la crisis planetaria en términos no de un Antropoceno sino Tecnoceno. Página personal:
-        www.lopezoliver.otrasenda.org`,
-      ],
-      imgSrc: 'assets/equipo/Oliver.png',
-      styles: {
-        photo: {
-          divHover: {
-            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-15.jpg)`,
-            'background-size': '100% 100%',
-            'background-position-x': '-110px',
-          },
-          img: {
-            filter: 'grayscale(1) brightness(1.3)',
-          },
-          imgHover: {
-            filter: 'grayscale(0) brightness(1)',
           },
         },
       },
