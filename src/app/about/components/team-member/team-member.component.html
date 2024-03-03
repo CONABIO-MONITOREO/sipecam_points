@@ -1,0 +1,36 @@
+<div
+  class="bg-color-transition"
+  [class.shadow]="hovered"
+  [class.text-white]="dark"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <!-- photo -->
+  <div class="box-photo-0">
+    <div class="box-photo-1" [style]="photoDivStyle">
+      <img [src]="data.imgSrc" [alt]="data.name" [style]="photoImgStyle" />
+    </div>
+  </div>
+
+  <!-- name & area -->
+  <div class="text-1">
+    {{ data.name }}
+  </div>
+  <div class="text-2">
+    {{ data.area }}
+  </div>
+
+  <!-- description -->
+  <ng-container *ngIf="hovered" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <div
+      class="box-popup text-popup-1 bg-color-transition"
+      [class.text-white]="dark"
+      [class.text-grey]="!dark"
+      [class.bg-black]="dark"
+    >
+      <p *ngFor="let paragraph of data.description; index as i; trackBy: getDescriptionItemId">
+        {{ data.description[i] }}
+      </p>
+    </div>
+  </ng-container>
+</div>

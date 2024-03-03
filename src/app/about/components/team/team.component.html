@@ -1,0 +1,15 @@
+<div [class.text-white]="dark">
+  <!-- title -->
+  <section>
+    <div class="box-title">
+      <span>Equipo</span>
+    </div>
+  </section>
+
+  <!-- members -->
+  <div class="box-members-1">
+    <div *ngFor="let item of team; index as i; trackBy: getTeamItemId" class="box-members-2">
+      <app-about-team-member [data]="item" [dark]="dark"></app-about-team-member>
+    </div>
+  </div>
+</div>

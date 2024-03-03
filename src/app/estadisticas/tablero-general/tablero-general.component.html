@@ -32,7 +32,7 @@
   <div ion-fixed>
     <ion-grid class="ion-padding">
       <ion-row>
-        <ion-col class="ion-padding" size="12" size-md="7">
+        <ion-col class="ion-padding" size="12" size-md="9">
           <ion-row>
             <ion-title class="ion-text-start ion-no-padding" color="medium"> Visitas Registradas </ion-title>
             <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
@@ -69,9 +69,9 @@
           </ion-row>
         </ion-col>
 
-        <ion-col class="ion-padding" size="12" size-md="5">
+        <ion-col class="ion-padding" size="12" size-md="3">
           <ion-row>
-            <ion-title class="ion-text-start ion-no-padding" color="medium"> Dispositivos adquiridos </ion-title>
+            <ion-title class="ion-text-start ion-margin-top" color="medium"> Dispositivos adquiridos </ion-title>
             <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
             <apx-chart
               class="chart"
@@ -85,7 +85,7 @@
           </ion-row>
 
           <ion-row>
-            <ion-title class="ion-text-start ion-no-padding" color="medium"> Dispositivos en campo </ion-title>
+            <ion-title class="ion-text-start ion-margin-top" color="medium"> Dispositivos en campo </ion-title>
             <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
             <apx-chart
               class="chart"
@@ -99,7 +99,7 @@
           </ion-row>
 
           <ion-row>
-            <ion-title class="ion-text-start ion-no-padding" color="medium"> Estado de los dispositivos </ion-title>
+            <ion-title class="ion-text-start ion-margin-top" color="medium"> Estado de los dispositivos </ion-title>
             <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
             <apx-chart
               class="chart"
@@ -115,7 +115,7 @@
       </ion-row>
 
       <ion-row>
-        <ion-col class="ion-padding" size="12" size-md="7">
+        <ion-col class="ion-padding" size="12" size-md="6">
           <ion-row>
             <ion-title class="ion-text-start ion-no-padding" color="medium"> Archivos entregados </ion-title>
             <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
@@ -131,9 +131,9 @@
             ></apx-chart>
           </ion-row>
         </ion-col>
-        <ion-col class="ion-padding" size="12" size-md="5">
+        <ion-col class="ion-padding" size="12" size-md="6">
           <ion-row>
-            <ion-title class="ion-text-start ion-no-padding" color="medium"> Datos entregados </ion-title>
+            <ion-title class="ion-text-start ion-no-padding" color="medium"> Datos entregados (Terabytes) </ion-title>
             <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
             <apx-chart
               class="chart"
@@ -144,6 +144,63 @@
               [colors]="filesSizeChart.colors"
               [legend]="filesSizeChart.legend"
               [yaxis]="filesSizeChart.yaxis"
+            ></apx-chart>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-padding" size="12" size-md="4">
+          <ion-row>
+            <ion-title class="ion-text-start ion-no-padding" color="medium">
+              Archivos de imágenes y videos entregados (Acumulación trimestral)
+            </ion-title>
+            <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
+            <apx-chart
+              class="chart"
+              [series]="filesAccChart.series"
+              [chart]="filesAccChart.chart"
+              [xaxis]="filesAccChart.xaxis"
+              [dataLabels]="filesAccChart.dataLabels"
+              [colors]="filesAccChart.colors"
+              [legend]="filesAccChart.legend"
+              [yaxis]="filesAccChart.yaxis"
+            ></apx-chart>
+          </ion-row>
+        </ion-col>
+        <ion-col class="ion-padding" size="12" size-md="4">
+          <ion-row>
+            <ion-title class="ion-text-start ion-no-padding" color="medium">
+              Archivos de audio entregados (Acumulación trimestral)
+            </ion-title>
+            <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
+            <apx-chart
+              class="chart"
+              [series]="filesAudioChart.series"
+              [chart]="filesAudioChart.chart"
+              [xaxis]="filesAudioChart.xaxis"
+              [dataLabels]="filesAccChart.dataLabels"
+              [colors]="filesAudioChart.colors"
+              [legend]="filesAudioChart.legend"
+              [yaxis]="filesAudioChart.yaxis"
+            ></apx-chart>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="ion-padding" size="12" size-md="4">
+          <ion-row>
+            <ion-title class="ion-text-start ion-no-padding" color="medium">
+              Datos entregados (Acumulación trimestral - Terabytes)
+            </ion-title>
+            <ion-item-divider class="ion-margin-top" color="light"></ion-item-divider>
+            <apx-chart
+              class="chart"
+              [series]="filesSizeAccChart.series"
+              [chart]="filesSizeAccChart.chart"
+              [xaxis]="filesSizeAccChart.xaxis"
+              [dataLabels]="filesSizeAccChart.dataLabels"
+              [colors]="filesSizeAccChart.colors"
+              [legend]="filesSizeAccChart.legend"
+              [yaxis]="filesSizeAccChart.yaxis"
             ></apx-chart>
           </ion-row>
         </ion-col>
