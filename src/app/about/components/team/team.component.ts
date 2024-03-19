@@ -167,6 +167,35 @@ export class TeamComponent {
       },
     },
     {
+      id: 'pedro_romero',
+      name: 'M. C. Pedro Romero Martínez',
+      area: 'Matemáticas',
+      description: [
+        `Soy matemático de formación con enfoque en análisis numérico y moderación matemática. 
+        Tengo experiencia en desarrollo, gestión y despliegue de APIs REST y aplicaciones web para distintos 
+        propósitos tanto en el sector privado como en gobierno.`,
+        `En los últimos años he trabajado en el laboratorio Chilam del C3 de la UNAM, 
+        realizando actividades relacionadas con ciencia e ingeniería de datos aplicadas a la modelación de sistemas 
+        complejos adaptativos como parte de mi doctorado. 
+        Me apasiona la aplicación de matemáticas y computación a problemas reales.`,
+      ],
+      imgSrc: 'assets/equipo/Pedro_Romero.jpg',
+      styles: {
+        photo: {
+          divHover: {
+            'background-image': `url(${TeamComponent.baseBackgroundImagePath}/bg-02.jpg)`,
+            'background-position': '-100px 0px',
+          },
+          img: {
+            filter: 'grayscale(1) brightness(1.5)',
+          },
+          imgHover: {
+            filter: 'grayscale(0) brightness(1)',
+          },
+        },
+      },
+    },
+    {
       id: 'francisco',
       name: 'Ing. Francisco Javier Ramírez Paredes',
       area: 'Ciencias e Ingeniería de la Computación',
