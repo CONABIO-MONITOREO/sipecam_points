@@ -43,7 +43,7 @@ export class MapaComponent implements OnInit {
 
   layers = {
     integridad_ecosistemica:
-      'https://monitoreo.conabio.gob.mx/geoserver/geoportal/wms?service=WMS&version=1.1.0&request=GetMap&layers=geoportal:mex_ie_2014_250m&styles=&bbox={bbox-epsg-3857}&width=768&height=436&srs=EPSG:3857&format=image%2Fpng&transparent=true',
+      'https://biodiversidad.gob.mx/geoserver/cnb/wms?service=WMS&version=1.1.0&request=GetMap&layers=cnb:ie2014_1kmgw&styles=&bbox={bbox-epsg-3857}&width=768&height=436&srs=EPSG:3857&format=image%2Fpng&transparent=true',
     vegetacion:
       'https://monitoreo.conabio.gob.mx/geoserver/geoportal/wms?service=WMS&version=1.1.0&request=GetMap&layers=geoportal:mex_RE_2015_8_clases&styles=&bbox={bbox-epsg-3857}&width=768&height=456&srs=EPSG:3857&format=image%2Fpng&transparent=true',
     perdida_vegetacion:
